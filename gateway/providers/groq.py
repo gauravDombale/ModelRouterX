@@ -5,7 +5,7 @@ from gateway.providers.openai import OpenAIProvider
 
 class GroqProvider(OpenAIProvider):
     name = "groq"
-    supported_models = {"groq/llama-3.3-70b", "groq/llama-3.1-8b"}
+    supported_models = {"groq/llama-3.3-70b-versatile", "groq/llama-3.1-8b-instant"}
     base_url = "https://api.groq.com/openai/v1"
 
     def _headers(self) -> dict[str, str]:

@@ -1,6 +1,6 @@
 DEFAULT_P50_MS = {
-    "groq/llama-3.1-8b": 120,
-    "groq/llama-3.3-70b": 180,
+    "groq/llama-3.1-8b-instant": 120,
+    "groq/llama-3.3-70b-versatile": 180,
     "gemini-2.0-flash": 450,
     "gpt-4o-mini-2024-07-18": 650,
     "claude-haiku-4-5-20251001": 700,

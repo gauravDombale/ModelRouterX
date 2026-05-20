@@ -9,8 +9,8 @@ MODEL_PRICING: dict[str, tuple[Decimal, Decimal]] = {
     "o3-mini-2025-01-31": (Decimal("1.10"), Decimal("4.40")),
     "gemini-2.5-pro": (Decimal("1.25"), Decimal("10.00")),
     "gemini-2.0-flash": (Decimal("0.10"), Decimal("0.40")),
-    "groq/llama-3.3-70b": (Decimal("0.59"), Decimal("0.79")),
-    "groq/llama-3.1-8b": (Decimal("0.05"), Decimal("0.08")),
+    "groq/llama-3.3-70b-versatile": (Decimal("0.59"), Decimal("0.79")),
+    "groq/llama-3.1-8b-instant": (Decimal("0.05"), Decimal("0.08")),
     "ollama/llama3.1": (Decimal("0.00"), Decimal("0.00")),
 }
 

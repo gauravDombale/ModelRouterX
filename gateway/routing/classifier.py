@@ -8,11 +8,11 @@ from gateway.schemas import ChatMessage
 TASK_TYPES = {"code", "reasoning", "creative", "factual", "chat", "long_doc"}
 
 TASK_MODEL_HINTS = {
-    "code": ["claude-sonnet-4-20250514", "gpt-4o-2024-11-20", "groq/llama-3.3-70b"],
+    "code": ["claude-sonnet-4-20250514", "gpt-4o-2024-11-20", "groq/llama-3.3-70b-versatile"],
     "reasoning": ["claude-opus-4-20250514", "gpt-4o-2024-11-20", "o3-mini-2025-01-31"],
     "creative": ["claude-sonnet-4-20250514", "gpt-4o-2024-11-20", "gemini-2.5-pro"],
     "factual": ["claude-haiku-4-5-20251001", "gpt-4o-mini-2024-07-18", "gemini-2.0-flash"],
-    "chat": ["claude-haiku-4-5-20251001", "gpt-4o-mini-2024-07-18", "groq/llama-3.1-8b"],
+    "chat": ["claude-haiku-4-5-20251001", "gpt-4o-mini-2024-07-18", "groq/llama-3.1-8b-instant"],
     "long_doc": ["claude-sonnet-4-20250514", "gemini-2.5-pro"],
 }
 

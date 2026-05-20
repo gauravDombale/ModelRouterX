@@ -7,8 +7,8 @@ QUALITY_MATRIX: dict[str, dict[str, float]] = {
     "o3-mini-2025-01-31": {"code": 0.88, "reasoning": 0.97, "creative": 0.72, "factual": 0.88, "chat": 0.75, "long_doc": 0.80},
     "gemini-2.5-pro": {"code": 0.91, "reasoning": 0.90, "creative": 0.88, "factual": 0.90, "chat": 0.85, "long_doc": 0.98},
     "gemini-2.0-flash": {"code": 0.75, "reasoning": 0.72, "creative": 0.74, "factual": 0.78, "chat": 0.82, "long_doc": 0.80},
-    "groq/llama-3.3-70b": {"code": 0.82, "reasoning": 0.80, "creative": 0.79, "factual": 0.80, "chat": 0.83, "long_doc": 0.70},
-    "groq/llama-3.1-8b": {"code": 0.65, "reasoning": 0.62, "creative": 0.64, "factual": 0.66, "chat": 0.75, "long_doc": 0.55},
+    "groq/llama-3.3-70b-versatile": {"code": 0.82, "reasoning": 0.80, "creative": 0.79, "factual": 0.80, "chat": 0.83, "long_doc": 0.70},
+    "groq/llama-3.1-8b-instant": {"code": 0.65, "reasoning": 0.62, "creative": 0.64, "factual": 0.66, "chat": 0.75, "long_doc": 0.55},
     "ollama/llama3.1": {"code": 0.70, "reasoning": 0.68, "creative": 0.68, "factual": 0.70, "chat": 0.78, "long_doc": 0.50},
 }
 
