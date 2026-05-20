@@ -1,0 +1,15 @@
+services:
+  gateway:
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+
+  dashboard:
+    restart: unless-stopped
+
+  postgres:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped
+

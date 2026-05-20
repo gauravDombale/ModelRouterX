@@ -1,0 +1,73 @@
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: gateway/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://mrx:mrx@postgres:5432/mrx
+      REDIS_URL: redis://redis:6379/0
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      LANGFUSE_HOST: http://langfuse:3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  dashboard:
+    build:
+      context: ../dashboard
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_GATEWAY_URL: http://localhost:8000
+      GATEWAY_URL: http://gateway:8000
+    depends_on:
+      - gateway
+
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: mrx
+      POSTGRES_USER: mrx
+      POSTGRES_PASSWORD: mrx
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mrx"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.4-alpine
+    command: redis-server --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  langfuse:
+    image: langfuse/langfuse:2
+    ports:
+      - "4000:3000"
+    environment:
+      DATABASE_URL: postgresql://mrx:mrx@postgres:5432/langfuse
+      NEXTAUTH_URL: http://localhost:4000
+      NEXTAUTH_SECRET: change-me-local
+      SALT: change-me-local
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  redisdata:
