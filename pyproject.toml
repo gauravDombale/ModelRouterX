@@ -1,0 +1,44 @@
+[project]
+name = "modelrouterx"
+version = "0.1.0"
+description = "Self-hosted intelligent LLM gateway and optimization platform"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115,<0.116",
+  "uvicorn[standard]>=0.34,<0.35",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy[asyncio]>=2.0,<3",
+  "asyncpg>=0.30,<0.31",
+  "alembic>=1.14,<2",
+  "redis>=5.2,<6",
+  "httpx>=0.28,<0.29",
+  "apscheduler>=3.11,<4",
+  "python-jose[cryptography]>=3.3,<4",
+  "tiktoken>=0.8,<1",
+  "langfuse>=2.59,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<0.26",
+  "ruff>=0.9,<0.10",
+  "locust>=2.32,<3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["gateway"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py312"
+

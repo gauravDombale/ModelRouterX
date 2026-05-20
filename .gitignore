@@ -1,0 +1,25 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+dashboard/node_modules/
+dashboard/.next/
+dashboard/out/
+
+pgdata/
+redisdata/
+
+.DS_Store
+
+# Ignore all markdown files except README
+*.md
+!README.md
+!readme.md
+**/*.md
+!**/README.md
+!**/readme.md
+
+
